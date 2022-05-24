@@ -7,6 +7,9 @@ import Reviews from "./Pages/Home/Reviews";
 import Blogs from "./Pages/Blogs/Blogs";
 import Contact from "./Pages/Home/Contact";
 import Login from "./Pages/Auth/Login";
+import Purchase from "./Pages/Purchase/Purchase";
+import Register from "./Pages/Auth/Register";
+import RequireAuth from "./Pages/Auth/RequireAuth";
 
 
 function App() {
@@ -21,6 +24,12 @@ function App() {
           <Route path="/blogs" element={<Blogs />}></Route>
           <Route path="/contact" element={<Contact />}></Route>
           <Route path="/login" element={<Login />}></Route>
+          <Route path="/register" element={<Register />}></Route>
+          <Route path="/purchase" element={
+            <RequireAuth>
+              <Purchase />
+            </RequireAuth>
+          }></Route>
         </Routes>
         <Footer />
       </Header>

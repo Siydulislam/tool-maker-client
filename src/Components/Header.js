@@ -1,7 +1,15 @@
+import { signOut } from 'firebase/auth';
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link, NavLink } from 'react-router-dom';
+import auth from '../Pages/Auth/firebase.init';
 
 const Header = ({ children }) => {
+    const [user] = useAuthState(auth);
+
+    const logout = () => {
+        signOut(auth);
+    }
     return (
         <div class="drawer drawer-end">
             <input id="my-drawer-3" type="checkbox" class="drawer-toggle" />
@@ -20,7 +28,7 @@ const Header = ({ children }) => {
                             <li><NavLink to="/reviews" className="rounded-lg text-xl">Reviews</NavLink></li>
                             <li><NavLink to="/blogs" className="rounded-lg text-xl">Blogs</NavLink></li>
                             <li><NavLink to="/contact" className="rounded-lg text-xl">Contact</NavLink></li>
-                            <li><NavLink to="/login" className="rounded-lg text-xl">Login</NavLink></li>
+                            <li>{user ? <button onClick={logout} className="rounded-lg text-xl">Logout</button> : <NavLink to="/login" className="rounded-lg text-xl">Login</NavLink>}</li>
                         </ul>
                     </div>
                 </div>
@@ -34,10 +42,8 @@ const Header = ({ children }) => {
                     <li><NavLink to="/reviews" className="rounded-lg text-xl">Reviews</NavLink></li>
                     <li><NavLink to="/blogs" className="rounded-lg text-xl">Blogs</NavLink></li>
                     <li><NavLink to="/contact" className="rounded-lg text-xl">Contact</NavLink></li>
-                    <li><NavLink to="/login" className="rounded-lg text-xl">Login</NavLink></li>
-
+                    <li>{user ? <button onClick={logout} className="rounded-lg text-xl">Logout</button> : <NavLink to="/login" className="rounded-lg text-xl">Login</NavLink>}</li>
                 </ul>
-
             </div>
         </div>
     );
