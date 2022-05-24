@@ -3,7 +3,7 @@ import BannerImage from "../../Assets/Images/banner.jpg";
 
 const Banner = () => {
     return (
-        <div class="hero min-h-screen bg-base-100">
+        <div class="hero min-h-screen">
             <div class="hero-content flex-col-reverse lg:flex-row-reverse lg:px-24">
                 <img src={BannerImage} class="max-w-sm rounded-lg shadow-2xl" alt="" />
                 <div>
