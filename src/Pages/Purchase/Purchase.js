@@ -5,13 +5,13 @@ import auth from '../Auth/firebase.init';
 const Purchase = () => {
     const [user] = useAuthState(auth);
     return (
-        <div className="mx-auto">
-            <div className='grid sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-20 my-12'>
+        <>
+            <div className='grid sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-10 my-12'>
                 <div>
                     <h2 className="text-center text-xl font-bold text-primary underline">Tools Details</h2>
                     <div class="card card-compact w-100 bg-base-100 m-8">
                         <figure><img src="https://api.lorem.space/image/shoes?w=400&h=225" alt="Shoes" /></figure>
-                        <div class="card-body">
+                        <div class="card-body mx-auto">
                             <h2 class="card-title">Shoes!</h2>
                             <p className="text-primary">If a dog chews shoes whose shoes does he choose?</p>
                             <p className="font-bold text-primary">Available quantity: </p>
@@ -30,7 +30,7 @@ const Purchase = () => {
                 </div>
                 <div>
                     <h2 className="text-center text-xl font-bold text-primary underline">Purchase Details</h2>
-                    <div class="card w-full max-w-sm bg-base-100 m-8 border">
+                    <div class="card w-full max-w-sm bg-base-100 m-8 border mx-auto">
                         <div class="card-body">
                             <div class="form-control">
                                 <label class="label">
@@ -75,7 +75,7 @@ const Purchase = () => {
                     </div>
                 </div>
             </div>
-        </div>
+        </>
     );
 };
 
