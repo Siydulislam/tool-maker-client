@@ -9,6 +9,7 @@ const Header = ({ children }) => {
 
     const logout = () => {
         signOut(auth);
+        localStorage.removeItem('accessToken');
     }
     return (
         <div class="drawer drawer-end">
@@ -28,6 +29,7 @@ const Header = ({ children }) => {
                             <li><NavLink to="/reviews" className="rounded-lg text-xl">Reviews</NavLink></li>
                             <li><NavLink to="/blogs" className="rounded-lg text-xl">Blogs</NavLink></li>
                             <li><NavLink to="/contact" className="rounded-lg text-xl">Contact</NavLink></li>
+                            {user && <li><button className="rounded-lg text-xl">{user.displayName}</button></li>}
                             <li>{user ? <button onClick={logout} className="rounded-lg text-xl">Logout</button> : <NavLink to="/login" className="rounded-lg text-xl">Login</NavLink>}</li>
                         </ul>
                     </div>
@@ -42,6 +44,7 @@ const Header = ({ children }) => {
                     <li><NavLink to="/reviews" className="rounded-lg text-xl">Reviews</NavLink></li>
                     <li><NavLink to="/blogs" className="rounded-lg text-xl">Blogs</NavLink></li>
                     <li><NavLink to="/contact" className="rounded-lg text-xl">Contact</NavLink></li>
+                    {user && <li><button className="rounded-lg text-xl">{user.displayName}</button></li>}
                     <li>{user ? <button onClick={logout} className="rounded-lg text-xl">Logout</button> : <NavLink to="/login" className="rounded-lg text-xl">Login</NavLink>}</li>
                 </ul>
             </div>
