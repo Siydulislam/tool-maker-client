@@ -1,6 +1,9 @@
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../Auth/firebase.init';
 
 const Purchase = () => {
+    const [user] = useAuthState(auth);
     return (
         <div className="mx-auto">
             <div className='grid sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-20 my-12'>
@@ -33,13 +36,13 @@ const Purchase = () => {
                                 <label class="label">
                                     <span class="label-text">Name</span>
                                 </label>
-                                <input type="text" placeholder="Name" class="input input-bordered" />
+                                <input type="text" placeholder="Name" disabled value={user?.displayName} class="input input-bordered" />
                             </div>
                             <div class="form-control">
                                 <label class="label">
                                     <span class="label-text">Email</span>
                                 </label>
-                                <input type="text" placeholder="Email" class="input input-bordered" />
+                                <input type="text" placeholder="Email" disabled value={user?.email} class="input input-bordered" />
                             </div>
                             <div class="form-control">
                                 <label class="label">
