@@ -1,37 +1,13 @@
-import React from 'react';
-import Wrench from '../../Assets/Images/wrench.jpg';
-import Chisel from '../../Assets/Images/chisel.jpg';
-import Drill from '../../Assets/Images/drill.jpg';
-import Hammer from '../../Assets/Images/hammer.jpg';
+import React, { useEffect, useState } from 'react';
 import Tool from './Tool';
 
 const Tools = () => {
-    const tools = [
-        {
-            _id: 1,
-            name: "Wrench",
-            description: "Very useful tool",
-            image: Wrench
-        },
-        {
-            _id: 1,
-            name: "Chisel",
-            description: "Very useful tool",
-            image: Chisel
-        },
-        {
-            _id: 1,
-            name: "Drill Machine",
-            description: "Very useful tool",
-            image: Drill
-        },
-        {
-            _id: 1,
-            name: "Hammer",
-            description: "Very useful tool",
-            image: Hammer
-        }
-    ]
+    const [tools, setTools] = useState([]);
+    useEffect(() => {
+        fetch("http://localhost:5000/tool")
+            .then(res => res.json())
+            .then(data => setTools(data))
+    }, []);
     return (
         <div>
             <h1 className="text-primary text-center text-4xl font-bold my-12 underline uppercase">Tools We Made</h1>
