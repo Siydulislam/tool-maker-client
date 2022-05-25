@@ -18,11 +18,13 @@ import ManageAllOrders from "./Pages/Dashboard/ManageAllOrders";
 import AddAProduct from "./Pages/Dashboard/AddAProduct";
 import ManageProducts from "./Pages/Dashboard/ManageProducts";
 import MakeAdmin from "./Pages/Dashboard/MakeAdmin";
+import { Toaster } from "react-hot-toast";
 
 
 function App() {
   return (
     <>
+      <Toaster />
       <Header></Header>
       <Routes>
         <Route path="/" element={<Home />}></Route>

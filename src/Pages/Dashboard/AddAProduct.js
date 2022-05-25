@@ -23,6 +23,7 @@ const AddAProduct = () => {
                         name: data.name,
                         description: data.description,
                         quantity: data.quantity,
+                        minQuantity: data.minQuantity,
                         price: data.price,
                         img: img
                     }
@@ -110,6 +111,25 @@ const AddAProduct = () => {
                     />
                     <label className="label">
                         {errors.quantity?.type === 'required' && <span className="label-text-alt text-red-500">{errors.quantity.message}</span>}
+                    </label>
+                </div>
+                <div className="form-control w-full max-w-xs">
+                    <label className="label">
+                        <span className="label-text">Min. Order Quantity</span>
+                    </label>
+                    <input
+                        type="text"
+                        placeholder="Min. Order Quantity"
+                        className="input input-bordered w-full max-w-xs"
+                        {...register("minQuantity", {
+                            required: {
+                                value: true,
+                                message: 'Min. Order Quantity is Required'
+                            }
+                        })}
+                    />
+                    <label className="label">
+                        {errors.minQuantity?.type === 'required' && <span className="label-text-alt text-red-500">{errors.minQuantity.message}</span>}
                     </label>
                 </div>
                 <div className="form-control w-full max-w-xs">
