@@ -16,14 +16,14 @@ const Dashboard = () => {
             </div>
             <div class="drawer-side">
                 <label for="dashboard-sidebar" class="drawer-overlay"></label>
-                <ul class="menu p-4 overflow-y-auto w-48 bg-base-100 text-base-content">
-                    <li><Link to="/dashboard">My Orders</Link></li>
-                    <li><Link to="/dashboard/review">Add Review</Link></li>
-                    <li><Link to="/dashboard/profile">My Profile</Link></li>
-                    <li><Link to="/dashboard/manageOrders">Manage Orders</Link></li>
-                    <li><Link to="/dashboard/addProduct">Add Product</Link></li>
-                    <li><Link to="/dashboard/manageProducts">Manage Products</Link></li>
-                    <li><Link to="/dashboard/makeAdmin">Make Admin</Link></li>
+                <ul class="menu p-4 overflow-y-auto w-60 bg-base-100 text-base-content gap-y-1">
+                    <li><Link to="/dashboard" className="rounded-lg text-xl">My Orders</Link></li>
+                    <li><Link to="/dashboard/review" className="rounded-lg text-xl">Add Review</Link></li>
+                    <li><Link to="/dashboard/profile" className="rounded-lg text-xl">My Profile</Link></li>
+                    <li><Link to="/dashboard/manageOrders" className="rounded-lg text-xl">Manage Orders</Link></li>
+                    <li><Link to="/dashboard/addProduct" className="rounded-lg text-xl">Add Product</Link></li>
+                    <li><Link to="/dashboard/manageProducts" className="rounded-lg text-xl">Manage Products</Link></li>
+                    <li><Link to="/dashboard/makeAdmin" className="rounded-lg text-xl">Make Admin</Link></li>
                 </ul>
 
             </div>

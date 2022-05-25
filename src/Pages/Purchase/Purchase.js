@@ -2,11 +2,11 @@ import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
-import { Navigate, useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import auth from '../Auth/firebase.init';
 
 const Purchase = () => {
-    const { register, formState: { errors }, handleSubmit, reset, setValue } = useForm();
+    const { register, formState: { errors }, handleSubmit, reset } = useForm();
     const [user] = useAuthState(auth);
     const navigate = useNavigate();
     const { purchaseItemId } = useParams();
