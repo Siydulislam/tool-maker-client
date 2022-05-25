@@ -33,7 +33,7 @@ function App() {
         <Route path="/contact" element={<Contact />}></Route>
         <Route path="/login" element={<Login />}></Route>
         <Route path="/register" element={<Register />}></Route>
-        <Route path="/purchase" element={
+        <Route path="/purchase/:purchaseItemId" element={
           <RequireAuth>
             <Purchase />
           </RequireAuth>
