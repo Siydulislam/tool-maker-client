@@ -19,6 +19,7 @@ import AddAProduct from "./Pages/Dashboard/AddAProduct";
 import ManageProducts from "./Pages/Dashboard/ManageProducts";
 import MakeAdmin from "./Pages/Dashboard/MakeAdmin";
 import { Toaster } from "react-hot-toast";
+import RequireAdmin from "./Pages/Auth/RequireAdmin";
 
 
 function App() {
@@ -48,10 +49,10 @@ function App() {
           <Route index element={<MyOrders></MyOrders>}></Route>
           <Route path="review" element={<AddReview></AddReview>}></Route>
           <Route path="profile" element={<MyProfile></MyProfile>}></Route>
-          <Route path="manageOrders" element={<ManageAllOrders></ManageAllOrders>}></Route>
-          <Route path="addProduct" element={<AddAProduct></AddAProduct>}></Route>
-          <Route path="manageProducts" element={<ManageProducts></ManageProducts>}></Route>
-          <Route path="makeAdmin" element={<MakeAdmin></MakeAdmin>}></Route>
+          <Route path="manageOrders" element={<RequireAdmin><ManageAllOrders></ManageAllOrders></RequireAdmin>}></Route>
+          <Route path="addProduct" element={<RequireAdmin><AddAProduct></AddAProduct></RequireAdmin>}></Route>
+          <Route path="manageProducts" element={<RequireAdmin><ManageProducts></ManageProducts></RequireAdmin>}></Route>
+          <Route path="makeAdmin" element={<RequireAdmin><MakeAdmin></MakeAdmin></RequireAdmin>}></Route>
         </Route>
       </Routes>
       <Footer />
