@@ -1,10 +1,10 @@
 import React from 'react';
 import toast from 'react-hot-toast';
 
-const DeleteConfirmModal = ({ deletingProduct, setIsReload, setDeletingProduct }) => {
-    const { _id } = deletingProduct;
+const DeleteOrderModal = ({ deletingOrder, setIsReload, setDeletingOrder }) => {
+    const { _id } = deletingOrder;
     const handleDelete = () => {
-        fetch(`http://localhost:5000/tool/${_id}`, {
+        fetch(`http://localhost:5000/order/${_id}`, {
             method: 'DELETE',
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`
@@ -14,8 +14,8 @@ const DeleteConfirmModal = ({ deletingProduct, setIsReload, setDeletingProduct }
             .then(data => {
                 console.log(data);
                 if (data.deletedCount) {
-                    toast.success(`Product deleted successfully!`)
-                    setDeletingProduct(null);
+                    toast.success(`Order deleted successfully!`)
+                    setDeletingOrder(null);
                     setIsReload(true);
                 }
             })
@@ -36,4 +36,4 @@ const DeleteConfirmModal = ({ deletingProduct, setIsReload, setDeletingProduct }
     );
 };
 
-export default DeleteConfirmModal;
+export default DeleteOrderModal;

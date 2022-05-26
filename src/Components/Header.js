@@ -27,7 +27,7 @@ const Header = () => {
                         {
                             user && <li><NavLink to="/dashboard" className="rounded-lg text-xl">Dashboard</NavLink></li>
                         }
-                        {user && <li><button className="rounded-lg text-xl">{user.displayName}</button></li>}
+                        {user && <li><button className="rounded-lg text-xl">{user?.displayName}</button></li>}
                         <li>{user ? <button className="rounded-lg text-xl" onClick={logout} >Sign Out</button> : <NavLink to="/login" className="rounded-lg text-xl">Login</NavLink>}</li>
                     </ul>
                 </div>

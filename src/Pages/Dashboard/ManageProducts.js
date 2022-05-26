@@ -4,7 +4,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { useNavigate } from 'react-router-dom';
 import useAdmin from '../../Hooks/useAdmin';
 import auth from '../Auth/firebase.init';
-import DeleteConfirmModal from './DeleteConfirmModal';
+import DeleteProductModal from './DeleteProductModal';
 import Products from './Products';
 
 const ManageProducts = () => {
@@ -64,11 +64,11 @@ const ManageProducts = () => {
                     </tbody>
                 </table>
             </div>
-            {deletingProduct && <DeleteConfirmModal
+            {deletingProduct && <DeleteProductModal
                 deletingProduct={deletingProduct}
                 setIsReload={setIsReload}
                 setDeletingProduct={setDeletingProduct}
-            ></DeleteConfirmModal>}
+            ></DeleteProductModal>}
         </div>
     );
 };

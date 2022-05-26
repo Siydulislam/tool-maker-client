@@ -3,9 +3,13 @@ import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useNavigate } from 'react-router-dom';
 import auth from '../Auth/firebase.init';
+import Orders from './Orders';
+import DeleteOrderModal from './DeleteOrderModal';
 
 const MyOrders = () => {
     const [orders, setOrders] = useState([]);
+    const [isReload, setIsReload] = useState(false);
+    const [deletingOrder, setDeletingOrder] = useState(null);
     const [user] = useAuthState(auth);
     const navigate = useNavigate();
 
@@ -30,7 +34,7 @@ const MyOrders = () => {
                     setOrders(data);
                 });
         }
-    }, [user, navigate])
+    }, [user, navigate, isReload]);
     return (
         <div>
             <h1>My Orders: {orders.length}</h1>
@@ -42,23 +46,29 @@ const MyOrders = () => {
                             <th>Name</th>
                             <th>Product's Name</th>
                             <th>Quantity</th>
+                            <th>Action</th>
                             <th>Payment</th>
                         </tr>
                     </thead>
                     <tbody>
                         {
-                            orders.map((order, index) => <tr key={order._id}>
-                                <th>{index + 1}</th>
-                                <td>{order.name}</td>
-                                <td>{order.pdName}</td>
-                                <td>{order.quantity}</td>
-                                <td>{order.quantity}</td>
-                            </tr>
+                            orders.map((order, index) => <Orders
+                                key={order._id}
+                                order={order}
+                                index={index}
+                                setIsReload={setIsReload}
+                                setDeletingOrder={setDeletingOrder}
+                            ></Orders>
                             )
                         }
                     </tbody>
                 </table>
             </div>
+            {deletingOrder && <DeleteOrderModal
+                deletingOrder={deletingOrder}
+                setIsReload={setIsReload}
+                setDeletingOrder={setDeletingOrder}
+            ></DeleteOrderModal>}
         </div>
     );
 };
