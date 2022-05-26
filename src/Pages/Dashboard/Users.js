@@ -1,9 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import toast from 'react-hot-toast';
 
-const Users = ({ user }) => {
+const Users = ({ user, setIsReload }) => {
     const { email, role } = user;
-    const [isReloading, setIsReloading] = useState(false);
     const makeAdmin = () => {
         fetch(`http://localhost:5000/user/admin/${email}`, {
             method: 'PUT',
@@ -20,7 +19,7 @@ const Users = ({ user }) => {
             .then(data => {
                 if (data.modifiedCount > 0) {
                     toast.success("Successfully made an admin");
-                    setIsReloading(!isReloading);
+                    setIsReload(true);
                 }
             })
     }

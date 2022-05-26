@@ -3,6 +3,7 @@ import Users from './Users';
 
 const MakeAdmin = () => {
     const [users, setUsers] = useState([]);
+    const [isReload, setIsReload] = useState(false);
 
     useEffect(() => {
         fetch('http://localhost:5000/user', {
@@ -15,7 +16,7 @@ const MakeAdmin = () => {
             .then(data => {
                 setUsers(data)
             })
-    }, []);
+    }, [isReload]);
 
     return (
         <div>
@@ -35,6 +36,7 @@ const MakeAdmin = () => {
                             users.map(user => <Users
                                 key={user._id}
                                 user={user}
+                                setIsReload={setIsReload}
                             ></Users>
                             )
                         }

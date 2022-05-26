@@ -1,5 +1,6 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import toast from 'react-hot-toast';
 
 const AddAProduct = () => {
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
@@ -39,11 +40,11 @@ const AddAProduct = () => {
                         .then(res => res.json())
                         .then(inserted => {
                             if (inserted.insertedId) {
-                                console.log('Product added successfully')
+                                toast.success('Product added successfully')
                                 reset();
                             }
                             else {
-                                console.log('Failed to add the product');
+                                toast.error('Failed to add the product');
                             }
                         })
 
