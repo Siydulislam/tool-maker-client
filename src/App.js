@@ -46,20 +46,20 @@ function App() {
             <Dashboard />
           </RequireAuth>
         }>
-          <Route index element={<MyOrders></MyOrders>}></Route>
+          <Route index element={<MyProfile></MyProfile>}></Route>
+          <Route path="orders" element={<MyOrders></MyOrders>}></Route>
           <Route path="review" element={<AddReview></AddReview>}></Route>
-          <Route path="profile" element={<MyProfile></MyProfile>}></Route>
         </Route>
         <Route path="/dashboard" element={
           <RequireAdmin>
             <Dashboard />
           </RequireAdmin>
         }>
-          <Route path="profile" element={<MyProfile></MyProfile>}></Route>
-          <Route path="manageOrders" element={<RequireAdmin><ManageAllOrders></ManageAllOrders></RequireAdmin>}></Route>
-          <Route path="addProduct" element={<RequireAdmin><AddAProduct></AddAProduct></RequireAdmin>}></Route>
-          <Route path="manageProducts" element={<RequireAdmin><ManageProducts></ManageProducts></RequireAdmin>}></Route>
-          <Route path="makeAdmin" element={<RequireAdmin><MakeAdmin></MakeAdmin></RequireAdmin>}></Route>
+          <Route index element={<MyProfile></MyProfile>}></Route>
+          <Route path="manageOrders" element={<ManageAllOrders></ManageAllOrders>}></Route>
+          <Route path="addProduct" element={<AddAProduct></AddAProduct>}></Route>
+          <Route path="manageProducts" element={<ManageProducts></ManageProducts>}></Route>
+          <Route path="makeAdmin" element={<MakeAdmin></MakeAdmin>}></Route>
         </Route>
       </Routes>
       <Footer />

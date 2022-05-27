@@ -54,7 +54,7 @@ const ManageProducts = () => {
                     <tbody>
                         {
                             products.map((product, index) => <Products
-                                key={product._key}
+                                key={product._id}
                                 product={product}
                                 index={index}
                                 setIsReload={setIsReload}

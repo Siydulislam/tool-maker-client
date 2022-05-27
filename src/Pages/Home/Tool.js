@@ -15,7 +15,7 @@ const Tool = (props) => {
                 <h2 class="card-title">{name}</h2>
                 <p>{description}</p>
                 <p>Available Quantity: {quantity}</p>
-                <p>Min. Order Quantity: {minQuantity}</p>
+                <p className="text-secondary font-bold">Min. Order Quantity: {minQuantity}</p>
                 <p>Price: ${price}</p>
                 <div class="card-actions justify-start">
                     <button onClick={() => navigateToPurchase(_id)} class="btn btn-primary">Purchase</button>

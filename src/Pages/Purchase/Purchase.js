@@ -6,7 +6,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import auth from '../Auth/firebase.init';
 
 const Purchase = () => {
-    const { register, formState: { errors }, handleSubmit, reset } = useForm();
+    const { register, formState: { errors }, handleSubmit, reset } = useForm({ mode: 'onChange' });
     const [user] = useAuthState(auth);
     const navigate = useNavigate();
     const { purchaseItemId } = useParams();
@@ -21,8 +21,8 @@ const Purchase = () => {
     }, [purchaseItemId]);
 
     const handlePlaceOrder = (data, event) => {
-        // console.log(data, event)
-        // const selectedQuantity = event.target.quantity.value;
+        console.log(data, event)
+        // const selectedQuantity = event.target.orderQuantity.value;
         // const totalPrice = selectedQuantity * price;
         // console.log(totalPrice)
         const order = {
@@ -30,7 +30,7 @@ const Purchase = () => {
             email: data.email,
             pdName: data.pdName,
             // unitPrice: data.unitPrice,
-            quantity: data.quantity,
+            quantity: data.orderQuantity,
             // totalPrice: data.unitPrice * data.quantity,
             address: data.address,
             phone: data.phone
@@ -80,39 +80,23 @@ const Purchase = () => {
                                     <label class="label">
                                         <span class="label-text">Name</span>
                                     </label>
-                                    <input type="text" placeholder="Name" value={user?.displayName} class="input input-bordered"
-                                        {...register("name", {
-                                            required: {
-                                                value: true,
-                                                message: 'Name is Required'
-                                            }
-                                        })}
+                                    <input type="text" placeholder="Name" readOnly value={user?.displayName} class="input input-bordered"
+                                        {...register("name")}
                                     />
-                                    <label className="label">
-                                        {errors.name?.type === 'required' && <span className="label-text-alt text-red-500">{errors.name.message}</span>}
-                                    </label>
                                 </div>
                                 <div class="form-control">
                                     <label class="label">
                                         <span class="label-text">Email</span>
                                     </label>
-                                    <input type="text" placeholder="Email" value={user?.email} class="input input-bordered"
-                                        {...register("email", {
-                                            required: {
-                                                value: true,
-                                                message: 'Email is Required'
-                                            }
-                                        })}
+                                    <input type="text" placeholder="Email" readOnly value={user?.email} class="input input-bordered"
+                                        {...register("email")}
                                     />
-                                    <label className="label">
-                                        {errors.email?.type === 'required' && <span className="label-text-alt text-red-500">{errors.email.message}</span>}
-                                    </label>
                                 </div>
                                 <div class="form-control">
                                     <label class="label">
                                         <span class="label-text">Product's Name</span>
                                     </label>
-                                    <input type="text" placeholder="Products's Name" value={name} class="input input-bordered"
+                                    <input type="text" placeholder="Products's Name" readOnly value={name} class="input input-bordered"
                                         {...register("pdName", {
                                             required: {
                                                 value: true,
@@ -144,8 +128,8 @@ const Purchase = () => {
                                     <label class="label">
                                         <span class="label-text">Order's Quantity</span>
                                     </label>
-                                    <input type="number" name="selectedQuantity" placeholder="Order's Quantity" class="input input-bordered"
-                                        {...register("quantity", {
+                                    <input type="number" name="orderQuantity" placeholder="Order's Quantity" class="input input-bordered"
+                                        {...register("orderQuantity", {
                                             required: {
                                                 value: true,
                                                 message: 'Quantity is Required'
@@ -161,7 +145,7 @@ const Purchase = () => {
                                         })}
                                     />
                                     <label className="label">
-                                        {(errors.quantity?.type === 'required' || errors.quantity?.type === 'min' || errors.quantity?.type === 'max') && <span className="label-text-alt text-red-500">{errors.quantity.message}</span>}
+                                        {(errors.orderQuantity?.type === 'required' || errors.orderQuantity?.type === 'min' || errors.orderQuantity?.type === 'max') && <span className="label-text-alt text-red-500">{errors.orderQuantity.message}</span>}
                                     </label>
                                 </div>
                                 {/* <div class="form-control">

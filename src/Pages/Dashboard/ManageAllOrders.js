@@ -1,9 +1,70 @@
-import React from 'react';
+import { signOut } from 'firebase/auth';
+import React, { useEffect, useState } from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { useNavigate } from 'react-router-dom';
+import useAdmin from '../../Hooks/useAdmin';
+import auth from '../Auth/firebase.init';
+import AllOrders from './AllOrders';
 
 const ManageAllOrders = () => {
+    const [allOrders, setAllOrders] = useState([]);
+    console.log(allOrders)
+    const [isReload, setIsReload] = useState(false);
+    const [user] = useAuthState(auth);
+    const [admin] = useAdmin(user);
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        if (admin) {
+            fetch(`http://localhost:5000/allOrder`, {
+                method: 'GET',
+                headers: {
+                    'authorization': `Bearer ${localStorage.getItem('accessToken')}`
+                }
+            })
+                .then(res => {
+                    if (res.status === 401 || res.status === 403) {
+                        signOut(auth);
+                        localStorage.removeItem('accessToken');
+                        navigate('/');
+                    }
+                    return res.json()
+                })
+                .then(data => {
+                    setAllOrders(data);
+                    console.log(data)
+                });
+        }
+    }, [admin, navigate, isReload])
     return (
         <div>
-            <h1>Manage All Orders Section</h1>
+            <h1>Total Orders: {allOrders.length}</h1>
+            <div class="overflow-x-auto">
+                <table class="table w-full">
+                    <thead>
+                        <tr>
+                            <th>SN</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Product's Name</th>
+                            <th>Quantity</th>
+                            <th>Status</th>
+                            <th>Payment</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {
+                            allOrders.map((allOrder, index) => <AllOrders
+                                key={allOrder._key}
+                                allOrder={allOrder}
+                                index={index}
+                                setIsReload={setIsReload}
+                            ></AllOrders>)
+                        }
+                    </tbody>
+                </table>
+            </div>
         </div>
     );
 };

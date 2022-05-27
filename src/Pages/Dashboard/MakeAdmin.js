@@ -20,12 +20,12 @@ const MakeAdmin = () => {
 
     return (
         <div>
-            <h1>Manage users: {users.length}</h1>
+            <h1>Total users: {users.length}</h1>
             <div class="overflow-x-auto">
                 <table class="table w-full">
                     <thead>
                         <tr>
-                            <th></th>
+                            <th>SN</th>
                             <th>Name</th>
                             <th>Job</th>
                             <th>Favorite Color</th>
@@ -33,7 +33,8 @@ const MakeAdmin = () => {
                     </thead>
                     <tbody>
                         {
-                            users.map(user => <Users
+                            users.map((user, index) => <Users
+                                index={index}
                                 key={user._id}
                                 user={user}
                                 setIsReload={setIsReload}
