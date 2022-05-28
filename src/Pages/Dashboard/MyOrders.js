@@ -22,7 +22,6 @@ const MyOrders = () => {
                 }
             })
                 .then(res => {
-                    console.log('res', res);
                     if (res.status === 401 || res.status === 403) {
                         signOut(auth);
                         localStorage.removeItem('accessToken');
@@ -46,6 +45,7 @@ const MyOrders = () => {
                             <th>Name</th>
                             <th>Product's Name</th>
                             <th>Quantity</th>
+                            <th>Price</th>
                             <th>Action</th>
                             <th>Payment</th>
                         </tr>

@@ -15,12 +15,11 @@ const useAdmin = user => {
             })
                 .then(res => res.json())
                 .then(data => {
-                    console.log(data)
                     setAdmin(data.admin);
                     setAdminLoading(false);
                 })
         }
-    }, [user])
+    }, [user?.email])
 
     return [admin, adminLoading]
 }

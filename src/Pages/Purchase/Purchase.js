@@ -21,17 +21,12 @@ const Purchase = () => {
     }, [purchaseItemId]);
 
     const handlePlaceOrder = (data, event) => {
-        console.log(data, event)
-        // const selectedQuantity = event.target.orderQuantity.value;
-        // const totalPrice = selectedQuantity * price;
-        // console.log(totalPrice)
         const order = {
             name: data.name,
             email: data.email,
             pdName: data.pdName,
-            // unitPrice: data.unitPrice,
             quantity: data.orderQuantity,
-            // totalPrice: data.unitPrice * data.quantity,
+            totalPrice: data.totalPrice,
             address: data.address,
             phone: data.phone
         }
@@ -80,7 +75,7 @@ const Purchase = () => {
                                     <label class="label">
                                         <span class="label-text">Name</span>
                                     </label>
-                                    <input type="text" placeholder="Name" readOnly value={user?.displayName} class="input input-bordered"
+                                    <input type="text" placeholder="Name" readOnly defaultValue={user?.displayName} class="input input-bordered"
                                         {...register("name")}
                                     />
                                 </div>
@@ -88,7 +83,7 @@ const Purchase = () => {
                                     <label class="label">
                                         <span class="label-text">Email</span>
                                     </label>
-                                    <input type="text" placeholder="Email" readOnly value={user?.email} class="input input-bordered"
+                                    <input type="text" placeholder="Email" readOnly defaultValue={user?.email} class="input input-bordered"
                                         {...register("email")}
                                     />
                                 </div>
@@ -96,7 +91,7 @@ const Purchase = () => {
                                     <label class="label">
                                         <span class="label-text">Product's Name</span>
                                     </label>
-                                    <input type="text" placeholder="Products's Name" readOnly value={name} class="input input-bordered"
+                                    <input type="text" placeholder="Products's Name" readOnly defaultValue={name} class="input input-bordered"
                                         {...register("pdName", {
                                             required: {
                                                 value: true,
@@ -108,27 +103,11 @@ const Purchase = () => {
                                         {errors.pdName?.type === 'required' && <span className="label-text-alt text-red-500">{errors.pdName.message}</span>}
                                     </label>
                                 </div>
-                                {/* <div class="form-control">
-                                    <label class="label">
-                                        <span class="label-text">Per Unit Price</span>
-                                    </label>
-                                    <input type="text" placeholder="Per Unit Price" value={price} class="input input-bordered"
-                                        {...register("unitPrice", {
-                                            required: {
-                                                value: true,
-                                                message: "Per Unit Price is Required"
-                                            }
-                                        })}
-                                    />
-                                    <label className="label">
-                                        {errors.unitPrice?.type === 'required' && <span className="label-text-alt text-red-500">{errors.unitPrice.message}</span>}
-                                    </label>
-                                </div> */}
                                 <div class="form-control">
                                     <label class="label">
                                         <span class="label-text">Order's Quantity</span>
                                     </label>
-                                    <input type="number" name="orderQuantity" placeholder="Order's Quantity" class="input input-bordered"
+                                    <input type="number" name="orderQuantity" defaultValue={minQuantity} placeholder="Order's Quantity" class="input input-bordered"
                                         {...register("orderQuantity", {
                                             required: {
                                                 value: true,
@@ -148,11 +127,11 @@ const Purchase = () => {
                                         {(errors.orderQuantity?.type === 'required' || errors.orderQuantity?.type === 'min' || errors.orderQuantity?.type === 'max') && <span className="label-text-alt text-red-500">{errors.orderQuantity.message}</span>}
                                     </label>
                                 </div>
-                                {/* <div class="form-control">
+                                <div class="form-control">
                                     <label class="label">
                                         <span class="label-text">Total Price</span>
                                     </label>
-                                    <input type="text" placeholder="Total Price" name="address" class="input input-bordered"
+                                    <input type="number" placeholder="Total Price" defaultValue={10000} class="input input-bordered"
                                         {...register("totalPrice", {
                                             required: {
                                                 value: true,
@@ -163,7 +142,7 @@ const Purchase = () => {
                                     <label className="label">
                                         {errors.totalPrice?.type === 'required' && <span className="label-text-alt text-red-500">{errors.totalPrice.message}</span>}
                                     </label>
-                                </div> */}
+                                </div>
                                 <div class="form-control">
                                     <label class="label">
                                         <span class="label-text">Address</span>
