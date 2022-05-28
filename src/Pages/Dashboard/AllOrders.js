@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const AllOrders = ({ allOrder, index }) => {
-    const { name, email, pdName, quantity } = allOrder;
+    const [updateStatus, setUpdateStatus] = useState("Pending");
+    const { name, email, pdName, quantity, paid } = allOrder;
 
     return (
         <tr>
@@ -11,13 +12,15 @@ const AllOrders = ({ allOrder, index }) => {
             <td>{pdName}</td>
             <td>{quantity}</td>
             <td>
-                <label for="delete-confirm-modal" class="btn btn-xs btn-error">Pending</label>
+                {!paid && <label for="delete-confirm-modal" class="btn btn-xs btn-error">{updateStatus}</label>}
+                {paid && <label for="delete-confirm-modal" class="btn btn-xs btn-error" onClick={() => setUpdateStatus("Shipped")}>{updateStatus}</label>}
             </td>
             <td>
-                <label for="delete-confirm-modal" class="btn btn-xs btn-primary">Unpaid</label>
+                {!paid && <label for="delete-confirm-modal" class="btn btn-xs btn-primary">Unpaid</label>}
+                {paid && <label for="delete-confirm-modal" class="btn btn-xs btn-primary">Paid</label>}
             </td>
             <td>
-                <label for="delete-confirm-modal" class="btn btn-xs btn-error">Delete</label>
+                {!paid ? <label for="delete-confirm-modal" class="btn btn-xs btn-error">Delete</label> : ''}
             </td>
         </tr>
     );

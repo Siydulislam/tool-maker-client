@@ -6,10 +6,11 @@ const CheckoutForm = ({ order }) => {
     const elements = useElements();
     const [cardError, setCardError] = useState("");
     const [success, setSuccess] = useState("");
+    const [processing, setProcessing] = useState(false);
     const [transactionId, setTransactionId] = useState('');
     const [clientSecret, setClientSecret] = useState("");
 
-    const { totalPrice, name, email } = order;
+    const { _id, totalPrice, name, email } = order;
     const price = parseInt(totalPrice)
     // console.log(price)
 
@@ -50,6 +51,7 @@ const CheckoutForm = ({ order }) => {
 
         setCardError(error?.message || "");
         setSuccess('');
+        setProcessing(true);
 
         // confirm card payment
         const { paymentIntent, error: intentError } = await stripe.confirmCardPayment(
@@ -67,11 +69,29 @@ const CheckoutForm = ({ order }) => {
 
         if (intentError) {
             setCardError(intentError?.message);
-            success('');
+            setProcessing(false);
         } else {
             setCardError('');
             setTransactionId(paymentIntent.id);
             setSuccess('Your Payment is completed!')
+
+            // Store payment on database
+            const payment = {
+                order: _id,
+                transactionId: paymentIntent.id
+            }
+            fetch(`http://localhost:5000/order/${_id}`, {
+                method: 'PATCH',
+                headers: {
+                    'content-type': 'application/json',
+                    'authorization': `Bearer ${localStorage.getItem('accessToken')}`
+                },
+                body: JSON.stringify(payment)
+            }).then(res => res.json())
+                .then(data => {
+                    setProcessing(false);
+                    console.log(data);
+                })
         }
     }
     return (
