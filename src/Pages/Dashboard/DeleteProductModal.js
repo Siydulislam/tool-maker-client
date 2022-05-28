@@ -4,7 +4,7 @@ import toast from 'react-hot-toast';
 const DeleteProductModal = ({ deletingProduct, setIsReload, setDeletingProduct }) => {
     const { _id } = deletingProduct;
     const handleDelete = () => {
-        fetch(`http://localhost:5000/tool/${_id}`, {
+        fetch(`https://aqueous-sierra-01864.herokuapp.com/tool/${_id}`, {
             method: 'DELETE',
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`

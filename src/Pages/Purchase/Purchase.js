@@ -15,7 +15,7 @@ const Purchase = () => {
     const { name, img, description, quantity, minQuantity, price } = purchaseItem;
 
     useEffect(() => {
-        fetch(`http://localhost:5000/tool/${purchaseItemId}`)
+        fetch(`https://aqueous-sierra-01864.herokuapp.com/tool/${purchaseItemId}`)
             .then(res => res.json())
             .then(data => setPurchaseItem(data))
     }, [purchaseItemId]);
@@ -31,7 +31,7 @@ const Purchase = () => {
             phone: data.phone
         }
 
-        fetch('http://localhost:5000/order', {
+        fetch('https://aqueous-sierra-01864.herokuapp.com/order', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

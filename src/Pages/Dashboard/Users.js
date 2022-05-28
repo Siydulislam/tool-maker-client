@@ -4,7 +4,7 @@ import toast from 'react-hot-toast';
 const Users = ({ user, setIsReload, index }) => {
     const { email, role } = user;
     const makeAdmin = () => {
-        fetch(`http://localhost:5000/user/admin/${email}`, {
+        fetch(`https://aqueous-sierra-01864.herokuapp.com/user/admin/${email}`, {
             method: 'PUT',
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`

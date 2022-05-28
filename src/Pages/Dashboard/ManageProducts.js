@@ -17,7 +17,7 @@ const ManageProducts = () => {
 
     useEffect(() => {
         if (admin) {
-            fetch(`http://localhost:5000/tool`, {
+            fetch(`https://aqueous-sierra-01864.herokuapp.com/tool`, {
                 method: 'GET',
                 headers: {
                     'authorization': `Bearer ${localStorage.getItem('accessToken')}`

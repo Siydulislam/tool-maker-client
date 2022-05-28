@@ -17,7 +17,7 @@ const ManageAllOrders = () => {
 
     useEffect(() => {
         if (admin) {
-            fetch(`http://localhost:5000/allOrder`, {
+            fetch(`https://aqueous-sierra-01864.herokuapp.com/allOrder`, {
                 method: 'GET',
                 headers: {
                     'authorization': `Bearer ${localStorage.getItem('accessToken')}`

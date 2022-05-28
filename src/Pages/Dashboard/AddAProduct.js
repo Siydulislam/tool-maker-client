@@ -29,7 +29,7 @@ const AddAProduct = () => {
                         img: img
                     }
                     // send to your database 
-                    fetch('http://localhost:5000/tool', {
+                    fetch('https://aqueous-sierra-01864.herokuapp.com/tool', {
                         method: 'POST',
                         headers: {
                             'content-type': 'application/json',

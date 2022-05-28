@@ -14,7 +14,7 @@ const Payment = () => {
     const { id } = useParams();
 
     useEffect(() => {
-        fetch(`http://localhost:5000/order/${id}`, {
+        fetch(`https://aqueous-sierra-01864.herokuapp.com/order/${id}`, {
             method: 'GET',
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`

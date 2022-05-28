@@ -6,7 +6,7 @@ const MakeAdmin = () => {
     const [isReload, setIsReload] = useState(false);
 
     useEffect(() => {
-        fetch('http://localhost:5000/user', {
+        fetch('https://aqueous-sierra-01864.herokuapp.com/user', {
             method: 'GET',
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`

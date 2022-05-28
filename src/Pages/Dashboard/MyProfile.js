@@ -13,7 +13,7 @@ const MyProfile = () => {
     const email = user.email;
 
     useEffect(() => {
-        fetch(`http://localhost:5000/user/${email}`)
+        fetch(`https://aqueous-sierra-01864.herokuapp.com/user/${email}`)
             .then(res => res.json())
             .then(data => setProfile(data))
     }, [email, isReload]);
@@ -27,7 +27,7 @@ const MyProfile = () => {
             linkedin: data.linkedin
         }
 
-        fetch(`http://localhost:5000/user/${email}`, {
+        fetch(`https://aqueous-sierra-01864.herokuapp.com/user/${email}`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json',
