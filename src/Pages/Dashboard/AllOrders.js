@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const AllOrders = ({ allOrder, index }) => {
+const AllOrders = ({ allOrder, index, setDeletingAllOrder }) => {
     const [updateStatus, setUpdateStatus] = useState("Pending");
     const { name, email, pdName, quantity, paid } = allOrder;
 
@@ -20,7 +20,7 @@ const AllOrders = ({ allOrder, index }) => {
                 {paid && <label for="delete-confirm-modal" class="btn btn-xs btn-primary">Paid</label>}
             </td>
             <td>
-                {!paid ? <label for="delete-confirm-modal" class="btn btn-xs btn-error">Delete</label> : ''}
+                {!paid ? <label for="delete-confirm-modal" onClick={() => setDeletingAllOrder(allOrder)} class="btn btn-xs btn-error">Delete</label> : ''}
             </td>
         </tr>
     );

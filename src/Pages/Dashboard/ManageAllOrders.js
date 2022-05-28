@@ -5,11 +5,12 @@ import { useNavigate } from 'react-router-dom';
 import useAdmin from '../../Hooks/useAdmin';
 import auth from '../Auth/firebase.init';
 import AllOrders from './AllOrders';
+import DeleteAllOrdersModal from './DeleteAllOrdersModal';
 
 const ManageAllOrders = () => {
     const [allOrders, setAllOrders] = useState([]);
-    console.log(allOrders)
     const [isReload, setIsReload] = useState(false);
+    const [deletingAllOrder, setDeletingAllOrder] = useState(null);
     const [user] = useAuthState(auth);
     const [admin] = useAdmin(user);
     const navigate = useNavigate();
@@ -32,7 +33,6 @@ const ManageAllOrders = () => {
                 })
                 .then(data => {
                     setAllOrders(data);
-                    console.log(data)
                 });
         }
     }, [admin, navigate, isReload])
@@ -60,11 +60,17 @@ const ManageAllOrders = () => {
                                 allOrder={allOrder}
                                 index={index}
                                 setIsReload={setIsReload}
+                                setDeletingAllOrder={setDeletingAllOrder}
                             ></AllOrders>)
                         }
                     </tbody>
                 </table>
             </div>
+            {deletingAllOrder && <DeleteAllOrdersModal
+                deletingAllOrder={deletingAllOrder}
+                setIsReload={setIsReload}
+                setDeletingAllOrder={setDeletingAllOrder}
+            ></DeleteAllOrdersModal>}
         </div>
     );
 };

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
+// import Loading from '../../Components/Loading';
 
 const CheckoutForm = ({ order }) => {
     const stripe = useStripe();
@@ -94,6 +95,11 @@ const CheckoutForm = ({ order }) => {
                 })
         }
     }
+
+    // if (processing) {
+    //     return <Loading />
+    // }
+
     return (
         <>
             <form onSubmit={handleSubmit}>
@@ -113,7 +119,7 @@ const CheckoutForm = ({ order }) => {
                         },
                     }}
                 />
-                <button className="btn btn-success btn-sm mt-4" type="submit" disabled={!stripe || !clientSecret}>
+                <button className="btn btn-success btn-sm mt-4" type="submit" disabled={!stripe || !clientSecret || success}>
                     Pay
                 </button>
             </form>
