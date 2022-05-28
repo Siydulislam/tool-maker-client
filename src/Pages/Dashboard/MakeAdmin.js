@@ -20,15 +20,15 @@ const MakeAdmin = () => {
 
     return (
         <div>
-            <h1>Total users: {users.length}</h1>
+            <h1 className="rounded-lg text-xl">Total users: {users.length}</h1>
             <div class="overflow-x-auto">
                 <table class="table w-full">
                     <thead>
                         <tr>
                             <th>SN</th>
                             <th>Name</th>
-                            <th>Job</th>
-                            <th>Favorite Color</th>
+                            <th>Make Admin</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>

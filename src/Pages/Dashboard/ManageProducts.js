@@ -38,7 +38,7 @@ const ManageProducts = () => {
     }, [admin, navigate, isReload])
     return (
         <div>
-            <h1>Total Products: {products.length}</h1>
+            <h1 className="rounded-lg text-xl">Total Products: {products.length}</h1>
             <div class="overflow-x-auto">
                 <table class="table w-full">
                     <thead>

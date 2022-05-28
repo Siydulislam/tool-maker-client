@@ -33,7 +33,6 @@ const Payment = () => {
 
     return (
         <div>
-            <h1>Please pay for {order.quantity} pieces of {order.pdName}</h1>
             <div class="card w-50 max-w-md bg-base-100 shadow-xl my-16 mx-auto">
                 <div class="card-body mx-auto">
                     <p className="text-success font-bold">Hello, {order.name}</p>

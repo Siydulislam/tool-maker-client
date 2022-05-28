@@ -8,46 +8,46 @@ const Faq = () => {
                 <div tabindex="0" class="collapse collapse-arrow border border-base-200 bg-base-100 rounded-box my-2">
                     <input type="checkbox" />
                     <div class="collapse-title text-xl font-medium">
-                        Focus me to see content
+                        What is batch production?
                     </div>
                     <div class="collapse-content">
-                        <p>tabindex="0" attribute is necessary to make the div focusable</p>
+                        <p>Batch production is a manufacturing technique, where components or goods are produced in groups and not in a continuous stream. This methodology is mainly used when similar items are produced together.</p>
                     </div>
                 </div>
                 <div tabindex="0" class="collapse collapse-arrow border border-base-200 bg-base-100 rounded-box my-2">
                     <input type="checkbox" />
                     <div class="collapse-title text-xl font-medium">
-                        Focus me to see content
+                        What is the challenge in manufacturing products?
                     </div>
                     <div class="collapse-content">
-                        <p>tabindex="0" attribute is necessary to make the div focusable</p>
+                        <p>Batch production is a manufacturing technique, where components or goods are produced in groups and not in a continuous stream. This methodology is mainly used when similar items are produced together.</p>
                     </div>
                 </div>
                 <div tabindex="0" class="collapse collapse-arrow border border-base-200 bg-base-100 rounded-box my-2">
                     <input type="checkbox" />
                     <div class="collapse-title text-xl font-medium">
-                        Focus me to see content
+                        Explain how to supervise in a manufacturing unit?
                     </div>
                     <div class="collapse-content">
-                        <p>tabindex="0" attribute is necessary to make the div focusable</p>
+                        <p>Batch production is a manufacturing technique, where components or goods are produced in groups and not in a continuous stream. This methodology is mainly used when similar items are produced together.</p>
                     </div>
                 </div>
                 <div tabindex="0" class="collapse collapse-arrow border border-base-200 bg-base-100 rounded-box my-2">
                     <input type="checkbox" />
                     <div class="collapse-title text-xl font-medium">
-                        Focus me to see content
+                        Explain how to supervise in a manufacturing unit?
                     </div>
                     <div class="collapse-content">
-                        <p>tabindex="0" attribute is necessary to make the div focusable</p>
+                        <p>Batch production is a manufacturing technique, where components or goods are produced in groups and not in a continuous stream. This methodology is mainly used when similar items are produced together.</p>
                     </div>
                 </div>
                 <div tabindex="0" class="collapse collapse-arrow border border-base-300 bg-base-100 rounded-box my-2">
                     <input type="checkbox" />
                     <div class="collapse-title text-xl font-medium">
-                        Focus me to see content
+                        Explain how to supervise in a manufacturing unit?
                     </div>
                     <div class="collapse-content">
-                        <p>tabindex="0" attribute is necessary to make the div focusable</p>
+                        <p>Batch production is a manufacturing technique, where components or goods are produced in groups and not in a continuous stream. This methodology is mainly used when similar items are produced together.</p>
                     </div>
                 </div>
             </div>

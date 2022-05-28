@@ -11,9 +11,13 @@ const Header = () => {
         signOut(auth);
         localStorage.removeItem('accessToken');
     }
+
     return (
         <div className="w-full navbar lg:px-20 bg-base-100">
             <div className="navbar-start">
+                <label tabIndex="1" for="dashboard-sidebar" className="btn btn-ghost lg:hidden">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+                </label>
                 <div class="flex-1 px-2 mx-2 text-3xl font-bold"><Link to="/" >ToolMaker</Link></div>
             </div>
             <div className="navbar-end">
@@ -24,6 +28,7 @@ const Header = () => {
                         <li><NavLink to="/reviews" className="rounded-lg text-xl">Reviews</NavLink></li>
                         <li><NavLink to="/blogs" className="rounded-lg text-xl">Blogs</NavLink></li>
                         <li><NavLink to="/contact" className="rounded-lg text-xl">Contact</NavLink></li>
+                        <li><NavLink to="/portfolio" className="rounded-lg text-xl">My Portfolio</NavLink></li>
                         {
                             user && <li><NavLink to="/dashboard" className="rounded-lg text-xl">Dashboard</NavLink></li>
                         }
@@ -41,6 +46,7 @@ const Header = () => {
                         <li><NavLink to="/reviews" className="rounded-lg text-xl">Reviews</NavLink></li>
                         <li><NavLink to="/blogs" className="rounded-lg text-xl">Blogs</NavLink></li>
                         <li><NavLink to="/contact" className="rounded-lg text-xl">Contact</NavLink></li>
+                        <li><NavLink to="/portfolio" className="rounded-lg text-xl">My Portfolio</NavLink></li>
                         {
                             user && <li><NavLink to="/dashboard" className="rounded-lg text-xl">Dashboard</NavLink></li>
                         }

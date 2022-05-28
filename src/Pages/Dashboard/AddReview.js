@@ -53,9 +53,9 @@ const AddReview = () => {
 
     return (
         <div>
-            <h1>Add A Review</h1>
+            <h1 className="rounded-lg text-xl text-center underline">Add A Review</h1>
             <form onSubmit={handleSubmit(onSubmit)}>
-                <div className="form-control w-full max-w-xs">
+                <div className="form-control w-full max-w-xs mx-auto">
                     <label className="label">
                         <span className="label-text">Name</span>
                     </label>
@@ -74,7 +74,7 @@ const AddReview = () => {
                         {errors.name?.type === 'required' && <span className="label-text-alt text-red-500">{errors.name.message}</span>}
                     </label>
                 </div>
-                <div className="form-control w-full max-w-xs">
+                <div className="form-control w-full max-w-xs mx-auto">
                     <label className="label">
                         <span className="label-text">Description</span>
                     </label>
@@ -93,7 +93,7 @@ const AddReview = () => {
                         {errors.description?.type === 'required' && <span className="label-text-alt text-red-500">{errors.description.message}</span>}
                     </label>
                 </div>
-                <div class="form-control">
+                <div class="form-control w-full max-w-xs mx-auto">
                     <label class="label">
                         <span class="label-text">Rating</span>
                     </label>
@@ -117,7 +117,7 @@ const AddReview = () => {
                         {(errors.rating?.type === 'required' || errors.rating?.type === 'min' || errors.rating?.type === 'max') && <span className="label-text-alt text-red-500">{errors.rating.message}</span>}
                     </label>
                 </div>
-                <div className="form-control w-full max-w-xs">
+                <div className="form-control w-full max-w-xs mx-auto">
                     <label className="label">
                         <span className="label-text">Photo</span>
                     </label>
@@ -135,7 +135,9 @@ const AddReview = () => {
                         {errors.image?.type === 'required' && <span className="label-text-alt text-red-500">{errors.image?.message}</span>}
                     </label>
                 </div>
-                <input className='btn w-full max-w-xs text-white' type="submit" value="Add" />
+                <div class="text-center">
+                    <input className='btn btn-primary w-full max-w-xs text-white' type="submit" value="Add" />
+                </div>
             </form>
         </div>
     );

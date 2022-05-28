@@ -36,7 +36,7 @@ const MyOrders = () => {
     }, [user, navigate, isReload]);
     return (
         <div>
-            <h1>My Orders: {orders.length}</h1>
+            <h1 className="rounded-lg text-xl">My Orders: {orders.length}</h1>
             <div class="overflow-x-auto">
                 <table class="table w-full">
                     <thead>

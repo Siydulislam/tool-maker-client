@@ -20,6 +20,9 @@ import ManageProducts from "./Pages/Dashboard/ManageProducts";
 import MakeAdmin from "./Pages/Dashboard/MakeAdmin";
 import { Toaster } from "react-hot-toast";
 import RequireAdmin from "./Pages/Auth/RequireAdmin";
+import Portfolio from "./Pages/Portfolio/Portfolio";
+import Payment from "./Pages/Dashboard/Payment";
+// import NotFound from "./Pages/NotFound/NotFound";
 
 
 function App() {
@@ -34,6 +37,7 @@ function App() {
         <Route path="/reviews" element={<Reviews />}></Route>
         <Route path="/blogs" element={<Blogs />}></Route>
         <Route path="/contact" element={<Contact />}></Route>
+        <Route path="/portfolio" element={<Portfolio />}></Route>
         <Route path="/login" element={<Login />}></Route>
         <Route path="/register" element={<Register />}></Route>
         <Route path="/purchase/:purchaseItemId" element={
@@ -49,6 +53,7 @@ function App() {
           <Route index element={<MyProfile></MyProfile>}></Route>
           <Route path="orders" element={<MyOrders></MyOrders>}></Route>
           <Route path="review" element={<AddReview></AddReview>}></Route>
+          <Route path="payment/:id" element={<Payment />}></Route>
         </Route>
         <Route path="/dashboard" element={
           <RequireAdmin>
@@ -61,6 +66,7 @@ function App() {
           <Route path="manageProducts" element={<ManageProducts></ManageProducts>}></Route>
           <Route path="makeAdmin" element={<MakeAdmin></MakeAdmin>}></Route>
         </Route>
+        {/* <Route path="*" element={<NotFound />}></Route> */}
       </Routes>
       <Footer />
     </>

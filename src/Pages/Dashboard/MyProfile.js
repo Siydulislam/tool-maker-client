@@ -51,7 +51,7 @@ const MyProfile = () => {
 
     return (
         <div>
-            <h1>My Profile Section</h1>
+            <h1 className="rounded-lg text-xl text-center underline">My Profile</h1>
             <div class="hero bg-base-100 container">
                 <div class="hero-content flex-col lg:flex-row">
                     <div class="card flex-shrink-0 w-full max-w-sm text-center lg:text-left mx-8">

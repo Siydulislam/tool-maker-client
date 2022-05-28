@@ -38,7 +38,7 @@ const ManageAllOrders = () => {
     }, [admin, navigate, isReload])
     return (
         <div>
-            <h1>Total Orders: {allOrders.length}</h1>
+            <h1 className="rounded-lg text-xl">Total Orders: {allOrders.length}</h1>
             <div class="overflow-x-auto">
                 <table class="table w-full">
                     <thead>
@@ -56,7 +56,7 @@ const ManageAllOrders = () => {
                     <tbody>
                         {
                             allOrders.map((allOrder, index) => <AllOrders
-                                key={allOrder._key}
+                                key={allOrder._id}
                                 allOrder={allOrder}
                                 index={index}
                                 setIsReload={setIsReload}

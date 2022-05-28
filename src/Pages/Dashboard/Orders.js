@@ -14,7 +14,7 @@ const Orders = ({ order, index, setDeletingOrder }) => {
                 <label onClick={() => setDeletingOrder(order)} for="delete-confirm-modal" disabled={paid} class="btn btn-xs btn-error">Delete</label>
             </td>
             <td>
-                {(totalPrice && !paid) && <Link to={`/dashboard/payment/${_id}`}><label for="delete-confirm-modal" class="btn btn-xs btn-primary">Pay</label></Link>}
+                {(totalPrice && !paid) && <Link to={`/dashboard/payment/${_id}`}><label class="btn btn-xs btn-primary">Pay</label></Link>}
                 {(totalPrice && paid) && <div>
                     <p><span className='text-success'>Paid</span></p>
                     <p>Transaction id: <span className='text-success'>{transactionId}</span></p>

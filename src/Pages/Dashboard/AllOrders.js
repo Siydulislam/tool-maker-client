@@ -12,12 +12,12 @@ const AllOrders = ({ allOrder, index, setDeletingAllOrder }) => {
             <td>{pdName}</td>
             <td>{quantity}</td>
             <td>
-                {!paid && <label for="delete-confirm-modal" class="btn btn-xs btn-error">{updateStatus}</label>}
-                {paid && <label for="delete-confirm-modal" class="btn btn-xs btn-error" onClick={() => setUpdateStatus("Shipped")}>{updateStatus}</label>}
+                {!paid && <label class="btn btn-xs btn-error">{updateStatus}</label>}
+                {paid && <label class="btn btn-xs btn-error" onClick={() => setUpdateStatus("Shipped")}>{updateStatus}</label>}
             </td>
             <td>
-                {!paid && <label for="delete-confirm-modal" class="btn btn-xs btn-primary">Unpaid</label>}
-                {paid && <label for="delete-confirm-modal" class="btn btn-xs btn-primary">Paid</label>}
+                {!paid && <label class="btn btn-xs btn-primary">Unpaid</label>}
+                {paid && <label class="btn btn-xs btn-primary">Paid</label>}
             </td>
             <td>
                 {!paid ? <label for="delete-confirm-modal" onClick={() => setDeletingAllOrder(allOrder)} class="btn btn-xs btn-error">Delete</label> : ''}
